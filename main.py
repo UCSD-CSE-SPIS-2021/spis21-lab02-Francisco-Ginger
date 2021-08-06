@@ -1,4 +1,5 @@
 
+
 # Step 1
 
 def sumTwo(a,b):
@@ -55,21 +56,28 @@ print(sumDigits(x))
 
 
 # Step 4
-def convertWageMtoW(mWage):
+# created a list of int values called wagelist
+# wagelist[0] is the wage gap for the US, wagelist[1] is the wage gap for Mexico, and wagelist[2] is the wage gap for Canada
+wagelist = [.182, .161 , .096];
+# The function below takes two arguments of value int and string below
+def convertWageMtoW(mWage, country):
+  wageGap = 0;
+  # I used an if elif elif statement and .lower() prewritten method to compare what the user types
+  if country.lower() == "usa":
+     wageGap = wagelist[0]
+  elif country.lower() == "mexico":
+     wageGap = wagelist[1]
+  elif country.lower() == "canada":
+     wageGap = wagelist[2]
+   
+  # Calculates the ratio
+  ratio = 1 - wageGap
 
-   wageGap = 0.182
+  # Calculates the wage of the Women
+  return mWage * ratio
 
-   ratio = 1 - wageGap
+print(convertWageMtoW(100, "USA"))
 
-   return mWage * ratio
+print(convertWageMtoW(100, "Mexico"))
 
-
-print(convertWageMtoW(100))
-
-print(convertWageMtoW(76.2))
-
-print(convertWageMtoW(0))
-
-print(convertWageMtoW(50))
-
-print(convertWageMtoW(25.55))
+print(convertWageMtoW(100, "Canada"))
